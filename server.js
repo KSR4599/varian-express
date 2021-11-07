@@ -24,9 +24,9 @@ if(lang == undefined){
 
 axios
 .get(`https://www.varian.com/rest-api/varian-blog-data?_format=json&limit=50&localize=${lang}`)
-.then((res) => {
-
- res.send(res.data.blogs);
+.then((varian_response) => {
+console.log("Got data "+ varian_response)
+ res.send(varian_response.data.blogs);
 })
 .catch((error) => {
   console.error("Error : "+ error);
@@ -36,7 +36,7 @@ axios
 
 
 app.get('/', (req,res) => {
-  res.send('You have hit the Varian Back-End API')
+  res.send('You have Varian Back-End API')
 });
 
 app.listen(port, () => {
